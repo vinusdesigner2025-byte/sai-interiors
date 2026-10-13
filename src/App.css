@@ -1547,3 +1547,1298 @@ img {
     transform: none;
   }
 }
+
+/* =========================================
+   SAI INTERIORS - ANIMATED NUMBER COUNTERS
+   ========================================= */
+
+.numbers-section {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #f7d65c 0%,
+    #f5be48 55%,
+    #ffb46a 100%
+  );
+  color: #143d35;
+  padding: 110px 7%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.numbers-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55),
+    transparent 70%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+  animation: numbersGlow 7s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.numbers-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 55px;
+}
+
+.numbers-heading .micro-label {
+  color: #76582c;
+}
+
+.numbers-heading h2 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(43px, 6vw, 85px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  margin: 20px 0;
+}
+
+.numbers-heading h2 em {
+  font-style: normal;
+  color: #fff9ed;
+}
+
+.numbers-heading p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #45665a;
+}
+
+.stats-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  z-index: 1;
+  border-top: 1px solid rgba(20, 61, 53, 0.2);
+  border-left: 1px solid rgba(20, 61, 53, 0.2);
+}
+
+.stat-card {
+  position: relative;
+  padding: 52px 40px;
+  min-width: 0;
+  border-right: 1px solid rgba(20, 61, 53, 0.2);
+  border-bottom: 1px solid rgba(20, 61, 53, 0.2);
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.stat-index {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #7e602c;
+}
+
+.stat-number {
+  display: block;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(65px, 9vw, 135px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  color: #143d35;
+  font-variant-numeric: tabular-nums;
+  margin: 15px 0;
+  white-space: nowrap;
+}
+
+.stat-suffix {
+  color: #ff6848;
+}
+
+.stat-card h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 800;
+  margin: 0;
+  color: #173f36;
+}
+
+.stat-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #547066;
+  margin-top: 10px;
+}
+
+/* =========================================
+   CUSTOMER REVIEWS SECTION
+   ========================================= */
+
+.customer-reviews {
+  position: relative;
+  isolation: isolate;
+  background: #fff1e6;
+  padding: 110px 7%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.reviews-halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -1;
+  animation: reviewsFloat 8s ease-in-out infinite alternate;
+}
+
+.halo-one {
+  width: 330px;
+  height: 330px;
+  background: #ffb886;
+  top: 5%;
+  left: -130px;
+}
+
+.halo-two {
+  width: 300px;
+  height: 300px;
+  background: #fbd585;
+  bottom: -100px;
+  right: -80px;
+  animation-delay: -4s;
+}
+
+.reviews-heading {
+  position: relative;
+}
+
+.reviews-heading .micro-label {
+  color: #a65a3c;
+}
+
+.reviews-heading h2 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(45px, 7vw, 94px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.075em;
+  margin: 20px 0;
+  color: #143e36;
+}
+
+.reviews-heading h2 em {
+  font-style: normal;
+  color: #ff7550;
+}
+
+.reviews-heading p {
+  color: #667a70;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Google review rating */
+
+.review-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 35px auto 0;
+}
+
+.rating-big {
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  color: #153e36;
+}
+
+.review-rating-summary > div {
+  text-align: left;
+}
+
+.rating-stars {
+  display: block;
+  font-size: 25px;
+  color: #f0ad27;
+  letter-spacing: 4px;
+}
+
+.review-rating-summary p {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6d7c74;
+}
+
+/* Main review card */
+
+.testimonial-card {
+  position: relative;
+  max-width: 870px;
+  min-height: 350px;
+  padding: 55px 60px;
+  margin: 45px auto 20px;
+  background: #fffaf4;
+  border: 1px solid #ecd7c5;
+  border-radius: 24px;
+  text-align: left;
+  overflow: hidden;
+  box-shadow:
+    0 25px 70px rgba(74, 46, 26, 0.1);
+  animation: reviewEnter 0.55s ease both;
+}
+
+.review-quote-symbol {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  font-family: Georgia, serif;
+  font-size: 150px;
+  line-height: 1;
+  color: #f6d9c4;
+  pointer-events: none;
+}
+
+.testimonial-stars {
+  position: relative;
+  display: block;
+  font-size: 25px;
+  letter-spacing: 5px;
+  color: #efab2d;
+  margin-bottom: 28px;
+  z-index: 1;
+}
+
+.testimonial-card blockquote {
+  position: relative;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(22px, 3vw, 35px);
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+  color: #183e35;
+  margin: 0;
+  z-index: 1;
+}
+
+.testimonial-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.testimonial-bottom strong {
+  display: block;
+  font-size: 15px;
+  color: #173e36;
+}
+
+.testimonial-bottom small {
+  display: block;
+  color: #927e70;
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.review-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.review-arrows button {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  border: none;
+  border-radius: 50%;
+  background: #1b483e;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.review-arrows button:hover {
+  background: #ff7550;
+  transform: translateY(-3px);
+}
+
+/* Review pagination */
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin: 18px 0 30px;
+}
+
+.review-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  background: #d4bbae;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.review-dots button.active {
+  width: 32px;
+  background: #ff7550;
+}
+
+/* Google review link */
+
+.google-review-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  padding: 19px 29px;
+  border-radius: 100px;
+  background: #1b483e;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.google-review-link:hover {
+  background: #ff7550;
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes numbersGlow {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-35px, 30px) scale(1.2);
+  }
+}
+
+@keyframes reviewsFloat {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(35px, -25px);
+  }
+}
+
+@keyframes reviewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+  .numbers-section,
+  .customer-reviews {
+    padding: 85px 6%;
+  }
+
+  .stat-card {
+    padding: 38px 24px;
+  }
+
+  .stat-number {
+    font-size: clamp(65px, 10vw, 100px);
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .numbers-section {
+    padding: 75px 6%;
+  }
+
+  .numbers-heading h2 {
+    font-size: clamp(43px, 10vw, 55px);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 28px 4px 32px;
+  }
+
+  .stat-number {
+    font-size: clamp(70px, 18vw, 100px);
+    margin: 12px 0;
+  }
+
+  .stat-card h3 {
+    font-size: 20px;
+  }
+
+  .customer-reviews {
+    padding: 75px 6%;
+  }
+
+  .reviews-heading h2 {
+    font-size: clamp(43px, 10vw, 56px);
+  }
+
+  .reviews-heading p {
+    font-size: 13px;
+  }
+
+  .review-rating-summary {
+    gap: 14px;
+  }
+
+  .rating-big {
+    font-size: 57px;
+  }
+
+  .rating-stars {
+    font-size: 19px;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-card {
+    padding: 35px 25px;
+    min-height: 330px;
+    border-radius: 18px;
+  }
+
+  .testimonial-card blockquote {
+    font-size: 23px;
+    line-height: 1.6;
+  }
+
+  .testimonial-stars {
+    font-size: 21px;
+  }
+
+  .testimonial-bottom {
+    margin-top: 32px;
+  }
+
+  .review-arrows button {
+    width: 43px;
+    height: 43px;
+  }
+
+  .google-review-link {
+    font-size: 10px;
+    padding: 16px 23px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .numbers-glow,
+  .reviews-halo,
+  .testimonial-card {
+    animation: none;
+  }
+}
+
+/* MOBILE - 4 STAT BOXES IN 2 x 2 GRID */
+
+@media (max-width: 600px) {
+  .numbers-section {
+    padding: 65px 5%;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .stat-card {
+    min-width: 0;
+    min-height: 185px;
+    padding: 22px 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .stat-index {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .stat-number {
+    font-size: clamp(34px, 10vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.07em;
+    white-space: nowrap;
+    margin: 18px 0 14px;
+  }
+
+  .stat-card h3 {
+    font-size: clamp(12px, 3.5vw, 16px);
+    line-height: 1.3;
+    font-weight: 800;
+  }
+
+  .stat-card p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .stat-card {
+    padding: 20px 9px;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+}
+
+/* ==========================================
+   SAI INTERIORS - MOBILE SECTION SPACING FIX
+   Remove excessive empty space
+========================================== */
+
+@media (max-width: 768px) {
+
+  /* 1. OUR WORK SECTION */
+
+  .work-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 38px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .work-section .section-title {
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .work-section .section-title h2 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .work-section .section-title p {
+    margin-bottom: 0 !important;
+  }
+
+  .work-section .globe-shell {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .explore-rail {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 2. OUR SERVICES SECTION */
+
+  .arch-services {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 38px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .services-top {
+    margin-top: 0 !important;
+    margin-bottom: 22px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .services-top h2 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .services-top p {
+    margin-bottom: 0 !important;
+  }
+
+  .arch-service-list {
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .service-foot {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 3. ANIMATED NUMBERS SECTION */
+
+  .numbers-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 42px 5% 38px !important;
+  }
+
+  .numbers-heading {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    padding-top: 0 !important;
+  }
+
+  .numbers-heading h2 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .numbers-heading p {
+    margin-bottom: 0 !important;
+  }
+
+  /* Keep all 4 boxes in 2 x 2 layout */
+
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .stat-card {
+    min-height: 160px !important;
+    padding: 20px 12px !important;
+  }
+
+  .stat-number {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    margin: 14px 0 10px !important;
+  }
+
+  .stat-card h3 {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  .stat-card p {
+    font-size: 10px !important;
+    margin-top: 6px !important;
+  }
+
+  /* 4. CUSTOMER REVIEWS */
+
+  .customer-reviews {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 42px 5% 40px !important;
+  }
+
+  .reviews-heading {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    padding-top: 0 !important;
+  }
+
+  .reviews-heading h2 {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .reviews-heading p {
+    margin-bottom: 0 !important;
+  }
+
+  .review-rating-summary {
+    margin-top: 22px !important;
+  }
+
+  .testimonial-card {
+    min-height: 0 !important;
+    margin-top: 25px !important;
+    margin-bottom: 15px !important;
+    padding: 28px 22px !important;
+  }
+
+  .testimonial-bottom {
+    margin-top: 25px !important;
+  }
+
+  .review-dots {
+    margin: 14px 0 20px !important;
+  }
+
+  /* 5. LET'S MAKE IT REAL */
+
+  .book-banner {
+    height: auto !important;
+    min-height: 380px !important;
+    padding: 45px 20px !important;
+    box-sizing: border-box;
+  }
+
+  /* 6. ENQUIRY SECTION */
+
+  .enquiry-section {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .enquiry-intro {
+    min-height: 0 !important;
+    padding-top: 45px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .enquiry-form {
+    min-height: 0 !important;
+  }
+
+  /* 7. FOOTER */
+
+  .v4-footer {
+    min-height: 0 !important;
+  }
+}
+
+/* SMALL MOBILE SCREEN */
+
+@media (max-width: 400px) {
+
+  .work-section,
+  .arch-services {
+    padding-top: 30px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .numbers-section,
+  .customer-reviews {
+    padding-top: 35px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .stat-card {
+    padding: 18px 10px !important;
+  }
+
+  .stat-number {
+    font-size: clamp(32px, 9vw, 42px) !important;
+  }
+
+  .book-banner {
+    min-height: 350px !important;
+  }
+}
+
+/* ===========================================
+   SAI INTERIORS - PREMIUM FOOTER
+=========================================== */
+
+.sai-premium-footer {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: #102b25;
+  color: #fff8ed;
+  padding: 70px 6% 0;
+  overflow: hidden;
+}
+
+/* ===========================================
+   BRAND / LOGO
+=========================================== */
+
+.sai-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 48px;
+}
+
+.sai-footer-brand img {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.sai-footer-brand-text h2 {
+  color: #e8b66f;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 0 0 9px;
+  line-height: 1.1;
+}
+
+.sai-footer-brand-text span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #e8c99a;
+}
+
+/* ===========================================
+   FOOTER COLUMNS
+=========================================== */
+
+.sai-footer-groups {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px;
+  padding: 38px 0 65px;
+  border-top: 1px solid rgba(231, 176, 101, 0.22);
+}
+
+.sai-footer-group {
+  min-width: 0;
+}
+
+.sai-footer-desktop-title {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  margin: 0 0 25px;
+}
+
+.sai-footer-mobile-title {
+  display: none;
+}
+
+.sai-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.sai-footer-links a {
+  color: #d7dcd3;
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sai-footer-links a:hover {
+  color: #efb96c;
+  transform: translateX(4px);
+}
+
+/* ===========================================
+   FOOTER BOTTOM
+=========================================== */
+
+.sai-footer-bottom {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 43px 15px 58px;
+  border-top: 1px solid rgba(231, 176, 101, 0.22);
+}
+
+.sai-footer-bottom p {
+  position: relative;
+  z-index: 2;
+  color: #fff8ed;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+
+.sai-footer-bottom h2 {
+  position: relative;
+  z-index: 2;
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 47px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #e7ae5e;
+  margin: 0 0 26px;
+}
+
+.sai-footer-watermark {
+  position: absolute;
+  z-index: -1;
+  font-family: Georgia, serif;
+  font-size: clamp(170px, 25vw, 380px);
+  font-weight: 800;
+  color: rgba(232, 182, 111, 0.06);
+  line-height: 1;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sai-back-to-top {
+  position: relative;
+  z-index: 2;
+  color: #d6b787;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.sai-back-to-top:hover {
+  color: #fff;
+}
+
+/* ===========================================
+   MOBILE - ACCORDION FOOTER
+=========================================== */
+
+@media (max-width: 768px) {
+
+  .sai-premium-footer {
+    padding: 38px 6% 0;
+  }
+
+  .sai-footer-brand {
+    gap: 15px;
+    padding: 0 0 36px;
+  }
+
+  .sai-footer-brand img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .sai-footer-brand-text h2 {
+    font-size: clamp(24px, 6vw, 33px);
+    letter-spacing: -0.5px;
+  }
+
+  .sai-footer-brand-text span {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .sai-footer-groups {
+    display: block;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .sai-footer-group {
+    border-top: 1px solid rgba(232, 182, 111, 0.28);
+  }
+
+  .sai-footer-group:last-child {
+    border-bottom: 1px solid rgba(232, 182, 111, 0.28);
+  }
+
+  .sai-footer-desktop-title {
+    display: none;
+  }
+
+  /* Accordion headings */
+
+  .sai-footer-mobile-title {
+    display: flex;
+    width: 100%;
+    min-height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 4px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #fff8ed;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: clamp(13px, 4vw, 18px);
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    line-height: 1.4;
+    appearance: none;
+  }
+
+  .sai-footer-mobile-title:focus-visible {
+    outline: 2px solid #e7ae5e;
+    outline-offset: -3px;
+  }
+
+  /* Chevron icon */
+
+  .sai-footer-chevron {
+    display: block;
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-right: 7px;
+    border-right: 2px solid #f3e9da;
+    border-bottom: 2px solid #f3e9da;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+  }
+
+  .sai-footer-group.is-open
+  .sai-footer-chevron {
+    transform: rotate(225deg);
+  }
+
+  /* Accordion content */
+
+  .sai-footer-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 5px 18px;
+  }
+
+  .sai-footer-group.is-open
+  .sai-footer-links {
+    display: flex;
+    animation: saiFooterExpand 0.3s ease both;
+  }
+
+  .sai-footer-links a {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 0;
+    color: #d9d4c6;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .sai-footer-links a:hover {
+    transform: none;
+  }
+
+  /* Bottom copyright */
+
+  .sai-footer-bottom {
+    padding: 35px 0 55px;
+    margin-top: 35px;
+  }
+
+  .sai-footer-bottom p {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .sai-footer-bottom h2 {
+    font-size: clamp(28px, 7vw, 39px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .sai-footer-watermark {
+    font-size: 220px;
+    bottom: -50px;
+  }
+
+  .sai-back-to-top {
+    font-size: 10px;
+  }
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media (max-width: 380px) {
+
+  .sai-footer-mobile-title {
+    font-size: 13px;
+    min-height: 76px;
+    letter-spacing: 0.8px;
+  }
+
+  .sai-footer-brand img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .sai-footer-brand-text h2 {
+    font-size: 23px;
+  }
+}
+
+/* ===========================================
+   FOOTER ANIMATION
+=========================================== */
+
+@keyframes saiFooterExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sai-footer-group.is-open
+  .sai-footer-links {
+    animation: none;
+  }
+
+  .sai-footer-chevron {
+    transition: none;
+  }
+}
+
+/* ======================================
+   MOBILE SERVICE CARD LIGHT ANIMATION
+   Cinematic moving light sweep
+====================================== */
+
+@media (max-width: 768px) and (hover: none) {
+
+  .arch-service-card .service-photo {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Moving light over the image */
+
+  .arch-service-card .service-shine {
+    display: block !important;
+    position: absolute !important;
+    inset: -40% !important;
+
+    width: 180% !important;
+    height: 180% !important;
+
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255,255,255,0.04) 40%,
+      rgba(255,255,255,0.45) 50%,
+      rgba(255,255,255,0.08) 57%,
+      transparent 70%
+    ) !important;
+
+    z-index: 5;
+    pointer-events: none;
+
+    opacity: 1 !important;
+
+    animation: mobileLightSweep 4s ease-in-out infinite !important;
+  }
+
+  /* Cards animate at different times */
+
+  .arch-service-card:nth-child(2) .service-shine {
+    animation-delay: 0.7s !important;
+  }
+
+  .arch-service-card:nth-child(3) .service-shine {
+    animation-delay: 1.4s !important;
+  }
+
+  .arch-service-card:nth-child(4) .service-shine {
+    animation-delay: 2.1s !important;
+  }
+
+  .arch-service-card:nth-child(5) .service-shine {
+    animation-delay: 2.8s !important;
+  }
+
+  .arch-service-card:nth-child(6) .service-shine {
+    animation-delay: 1s !important;
+  }
+
+  .arch-service-card:nth-child(7) .service-shine {
+    animation-delay: 1.8s !important;
+  }
+
+  /* Touch interaction */
+
+  .arch-service-card:active .service-photo img {
+    transform: scale(1.04);
+    filter: brightness(1.1);
+  }
+}
+
+/* Actual moving light animation */
+
+@keyframes mobileLightSweep {
+
+  0%, 10% {
+    transform: translateX(-110%) skewX(-12deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateX(110%) skewX(-12deg);
+    opacity: 1;
+  }
+
+  70%, 100% {
+    transform: translateX(110%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-service-card .service-shine {
+    animation: none !important;
+  }
+}
+
+
+
+
