@@ -4,20 +4,13 @@ import logo from "./assets/logo.png";
 import "./App.css";
 
 // =========================================
-// SAI INTERIORS CONFIGURATION
+// VINU'S DESIGNERS — DEMO WEBSITE
 // =========================================
 
-const BRAND = "Sai Interiors";
-const LOCATION = "Sholinganallur, Chennai";
-const PHONE = "08056073989";
+const BRAND = "Vinu's Designers";
+const LOCATION = "XXXXXX";
 
-const INSTAGRAM =
-  "https://www.instagram.com/saiinteriors_chennai/";
-
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Sai%20Interiors%20Village%20High%20Road%20Sholinganallur%20Chennai";
-
-// Demo photos - replace with real client project photos.
+// SAMPLE IMAGES
 const photos = [
   "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
   "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80",
@@ -94,41 +87,38 @@ const projectNames = [
 const gallery = Array.from({ length: 26 }, (_, i) => ({
   id: i + 1,
   name: projectNames[i % projectNames.length],
-  image: photos[(i * 3 + Math.floor(i / 6)) % photos.length],
+  image: photos[
+    (i * 3 + Math.floor(i / 6)) % photos.length
+  ],
 }));
 
 // =========================================
-// GOOGLE CUSTOMER REVIEW EXCERPTS
-// From supplied Google listing screenshots
+// DEMO CUSTOMER REVIEWS
 // =========================================
 
 const customerReviews = [
   {
-    quote:
-      "Material quality was good and finished the work well ahead of promised time.",
-    stars: 5,
-    name: "Google Customer Review",
-    source: "Review excerpt",
+    quote: "XXXXXX",
+    stars: 0,
+    name: "XXXXXX",
+    source: "DEMO ONLY",
   },
   {
-    quote:
-      "The quality of materials, finishing, and workmanship exceeded our expectations.",
-    stars: 5,
-    name: "Google Customer Review",
-    source: "Review excerpt",
+    quote: "XXXXXX",
+    stars: 0,
+    name: "XXXXXX",
+    source: "DEMO ONLY",
   },
   {
-    quote:
-      "The only thing we want was to make our new home look classy and elegant.",
-    stars: 5,
-    name: "Google Customer Review",
-    source: "Review excerpt",
+    quote: "XXXXXX",
+    stars: 0,
+    name: "XXXXXX",
+    source: "DEMO ONLY",
   },
 ];
 
 // =========================================
-// ANIMATED COUNTERS
-// Figures shown in client business screenshots
+// ORIGINAL ANIMATED STATISTICS RESTORED
 // =========================================
 
 const stats = [
@@ -167,13 +157,12 @@ const stats = [
 // =========================================
 
 function Arrow({ direction = "right", size = 20 }) {
-  const rotation =
-    {
-      right: 0,
-      left: 180,
-      up: -90,
-      down: 90,
-    }[direction] ?? 0;
+  const rotation = {
+    right: 0,
+    left: 180,
+    up: -90,
+    down: 90,
+  }[direction] ?? 0;
 
   return (
     <svg
@@ -196,7 +185,7 @@ function Arrow({ direction = "right", size = 20 }) {
 }
 
 // =========================================
-// SCROLL REVEAL ANIMATION
+// SCROLL REVEAL
 // =========================================
 
 function Reveal({ children, className = "" }) {
@@ -242,7 +231,7 @@ function Reveal({ children, className = "" }) {
 }
 
 // =========================================
-// AUTO COUNT-UP ANIMATION
+// ANIMATED COUNTERS
 // =========================================
 
 function CountUp({
@@ -251,13 +240,14 @@ function CountUp({
   decimals = 0,
 }) {
   const elementRef = useRef(null);
-
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const element = elementRef.current;
 
-    if (!element) return;
+    if (!element || typeof to !== "number") {
+      return;
+    }
 
     let animationFrame;
     let observer;
@@ -333,7 +323,9 @@ function CountUp({
   }, [to, decimals]);
 
   const formatted =
-    decimals > 0
+    typeof to === "string"
+      ? to
+      : decimals > 0
       ? count.toFixed(decimals)
       : count.toLocaleString("en-IN");
 
@@ -351,7 +343,7 @@ function CountUp({
 }
 
 // =========================================
-// INTERACTIVE ROTATING 3D PHOTO GLOBE
+// INTERACTIVE 3D PHOTO GLOBE
 // =========================================
 
 function PhotoGlobe({ onSelect }) {
@@ -440,7 +432,7 @@ function PhotoGlobe({ onSelect }) {
 
         node.style.opacity = String(
           0.36 +
-            ((depth + 1) / 2) * 0.64
+          ((depth + 1) / 2) * 0.64
         );
 
         node.style.zIndex = String(
@@ -483,9 +475,7 @@ function PhotoGlobe({ onSelect }) {
 
     let observer;
 
-    if (
-      "IntersectionObserver" in window
-    ) {
+    if ("IntersectionObserver" in window) {
       observer = new IntersectionObserver(
         ([entry]) => {
           inView = entry.isIntersecting;
@@ -502,10 +492,7 @@ function PhotoGlobe({ onSelect }) {
 
     raf = requestAnimationFrame(tick);
 
-    window.addEventListener(
-      "resize",
-      draw
-    );
+    window.addEventListener("resize", draw);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -533,11 +520,8 @@ function PhotoGlobe({ onSelect }) {
 
     if (!current.down) return;
 
-    const dx =
-      e.clientX - current.x;
-
-    const dy =
-      e.clientY - current.y;
+    const dx = e.clientX - current.x;
+    const dy = e.clientY - current.y;
 
     if (
       Math.abs(dx) + Math.abs(dy) > 3
@@ -590,9 +574,7 @@ function PhotoGlobe({ onSelect }) {
               photoRefs.current[i] = node;
             }}
             onClick={() => {
-              if (
-                !gesture.current.moved
-              ) {
+              if (!gesture.current.moved) {
                 onSelect(item);
               }
             }}
@@ -617,20 +599,18 @@ function PhotoGlobe({ onSelect }) {
 }
 
 // =========================================
-// CUSTOMER REVIEWS SLIDER
+// CUSTOMER REVIEWS — DEMO
 // =========================================
 
 function ReviewsSection() {
   const [index, setIndex] = useState(0);
 
-  const current =
-    customerReviews[index];
+  const current = customerReviews[index];
 
   const previousReview = () => {
     setIndex(
       (i) =>
-        (i - 1 +
-          customerReviews.length) %
+        (i - 1 + customerReviews.length) %
         customerReviews.length
     );
   };
@@ -638,8 +618,7 @@ function ReviewsSection() {
   const nextReview = () => {
     setIndex(
       (i) =>
-        (i + 1) %
-        customerReviews.length
+        (i + 1) % customerReviews.length
     );
   };
 
@@ -662,23 +641,22 @@ function ReviewsSection() {
         </h2>
 
         <p>
-          Genuine customer feedback
-          from Google. Built on trust,
-          quality and craftsmanship.
+          Sample review layout for demonstration.
+          Actual customer feedback can be added
+          after project approval.
         </p>
       </Reveal>
 
       <div className="review-rating-summary">
         <span className="rating-big">
-          4.9
+          XXXXXX
         </span>
 
         <div>
           <span className="rating-stars">
-            ★★★★★
+            DEMO
           </span>
-
-          <p>52 Google Reviews</p>
+          <p>XXXXXX</p>
         </div>
       </div>
 
@@ -691,7 +669,9 @@ function ReviewsSection() {
         </span>
 
         <span className="testimonial-stars">
-          {"★".repeat(current.stars)}
+          {current.stars > 0
+            ? "★".repeat(current.stars)
+            : "DEMO"}
         </span>
 
         <blockquote>
@@ -700,13 +680,8 @@ function ReviewsSection() {
 
         <div className="testimonial-bottom">
           <div>
-            <strong>
-              {current.name}
-            </strong>
-
-            <small>
-              {current.source}
-            </small>
+            <strong>{current.name}</strong>
+            <small>{current.source}</small>
           </div>
 
           <div className="review-arrows">
@@ -745,11 +720,9 @@ function ReviewsSection() {
 
       <a
         className="google-review-link"
-        href={GOOGLE_REVIEWS_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#contact"
       >
-        EXPLORE GOOGLE REVIEWS
+        DEMO REVIEW DETAILS: XXXXXX
         <Arrow size={19} />
       </a>
     </section>
@@ -757,7 +730,7 @@ function ReviewsSection() {
 }
 
 // =========================================
-// ENQUIRY FORM (DEMO)
+// CONTACT FORM — DEMO ONLY
 // =========================================
 
 function ContactForm() {
@@ -768,8 +741,7 @@ function ContactForm() {
     message: "",
   });
 
-  const [opened, setOpened] =
-    useState(false);
+  const [opened, setOpened] = useState(false);
 
   const submit = (e) => {
     e.preventDefault();
@@ -787,9 +759,7 @@ function ContactForm() {
       `mailto:?subject=${encodeURIComponent(
         subject
       )}` +
-      `&body=${encodeURIComponent(
-        body
-      )}`;
+      `&body=${encodeURIComponent(body)}`;
 
     setOpened(true);
   };
@@ -800,9 +770,7 @@ function ContactForm() {
       onSubmit={submit}
     >
       <div className="form-top">
-        <span>
-          LET'S START YOUR PROJECT
-        </span>
+        <span>LET'S START YOUR PROJECT</span>
         <span>✳</span>
       </div>
 
@@ -900,7 +868,7 @@ function ContactForm() {
 }
 
 // =========================================
-// PREMIUM ACCORDION FOOTER
+// PREMIUM FOOTER
 // =========================================
 
 function SaiFooter() {
@@ -911,18 +879,9 @@ function SaiFooter() {
     {
       title: "INFORMATION",
       links: [
-        {
-          label: "Home",
-          href: "#home",
-        },
-        {
-          label: "Our Work",
-          href: "#work",
-        },
-        {
-          label: "Our Services",
-          href: "#services",
-        },
+        { label: "Home", href: "#home" },
+        { label: "Our Work", href: "#work" },
+        { label: "Our Services", href: "#services" },
         {
           label: "Customer Reviews",
           href: "#reviews",
@@ -932,157 +891,113 @@ function SaiFooter() {
     {
       title: "SUPPORT",
       links: [
-        {
-          label: "Book Consultation",
-          href: "#contact",
-        },
-        {
-          label: "Contact Us",
-          href: "#contact",
-        },
-        {
-          label: "Call Now",
-          href: `tel:${PHONE}`,
-        },
-        {
-          label: "Google Reviews",
-          href: GOOGLE_REVIEWS_URL,
-          external: true,
-        },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
       ],
     },
     {
       title: "GET IN TOUCH",
       links: [
-        {
-          label: "080560 73989",
-          href: `tel:${PHONE}`,
-        },
-        {
-          label: "Sholinganallur, Chennai",
-          href: GOOGLE_REVIEWS_URL,
-          external: true,
-        },
-        {
-          label: "Get Directions ↗",
-          href: GOOGLE_REVIEWS_URL,
-          external: true,
-        },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
       ],
     },
     {
       title: "FOLLOW OUR WORK",
       links: [
-        {
-          label: "Instagram ↗",
-          href: INSTAGRAM,
-          external: true,
-        },
-        {
-          label: "Google Customer Reviews ↗",
-          href: GOOGLE_REVIEWS_URL,
-          external: true,
-        },
+        { label: "XXXXXX" },
+        { label: "XXXXXX" },
       ],
     },
   ];
 
   return (
     <footer className="sai-premium-footer">
-      {/* LOGO */}
+      {/* BRAND */}
 
       <div className="sai-footer-brand">
         <img
           src={logo}
-          alt="Sai Interiors logo"
+          alt="Vinu's Designers logo"
         />
 
         <div className="sai-footer-brand-text">
-          <h2>
-            SAI INTERIORS
-          </h2>
-
+          <h2>VINU'S DESIGNERS</h2>
           <span>
             DESIGN YOUR DREAM HOME
           </span>
         </div>
       </div>
 
-      {/* FOOTER GROUPS */}
+      {/* FOOTER LINKS */}
 
       <div className="sai-footer-groups">
-        {footerGroups.map(
-          (group, index) => (
-            <div
-              key={group.title}
-              className={`sai-footer-group ${
-                openSection === index
-                  ? "is-open"
-                  : ""
-              }`}
-            >
-              <h3 className="sai-footer-desktop-title">
-                {group.title}
-              </h3>
+        {footerGroups.map((group, index) => (
+          <div
+            key={group.title}
+            className={`sai-footer-group ${
+              openSection === index
+                ? "is-open"
+                : ""
+            }`}
+          >
+            <h3 className="sai-footer-desktop-title">
+              {group.title}
+            </h3>
 
-              <button
-                type="button"
-                className="sai-footer-mobile-title"
-                onClick={() =>
-                  setOpenSection(
-                    openSection === index
-                      ? null
-                      : index
-                  )
-                }
-                aria-expanded={
+            <button
+              type="button"
+              className="sai-footer-mobile-title"
+              onClick={() =>
+                setOpenSection(
                   openSection === index
-                }
-                aria-controls={`sai-footer-panel-${index}`}
-              >
-                <span>
-                  {group.title}
-                </span>
+                    ? null
+                    : index
+                )
+              }
+              aria-expanded={
+                openSection === index
+              }
+              aria-controls={`sai-footer-panel-${index}`}
+            >
+              <span>{group.title}</span>
 
-                <span
-                  className="sai-footer-chevron"
-                  aria-hidden="true"
-                />
-              </button>
+              <span
+                className="sai-footer-chevron"
+                aria-hidden="true"
+              />
+            </button>
 
-              <div
-                className="sai-footer-links"
-                id={`sai-footer-panel-${index}`}
-              >
-                {group.links.map(
-                  (link) => (
+            <div
+              className="sai-footer-links"
+              id={`sai-footer-panel-${index}`}
+            >
+              {group.links.map(
+                (link, linkIndex) =>
+                  link.href ? (
                     <a
-                      key={link.label}
+                      key={`${group.title}-${linkIndex}`}
                       href={link.href}
-                      target={
-                        link.external
-                          ? "_blank"
-                          : undefined
+                      onClick={() =>
+                        setOpenSection(null)
                       }
-                      rel={
-                        link.external
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      onClick={() => {
-                        if (!link.external) {
-                          setOpenSection(null);
-                        }
-                      }}
                     >
                       {link.label}
                     </a>
+                  ) : (
+                    <span
+                      key={`${group.title}-${linkIndex}`}
+                    >
+                      {link.label}
+                    </span>
                   )
-                )}
-              </div>
+              )}
             </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
 
       {/* COPYRIGHT */}
@@ -1092,13 +1007,12 @@ function SaiFooter() {
           className="sai-footer-watermark"
           aria-hidden="true"
         >
-          SI
+          VD
         </span>
 
         <p>
           © {new Date().getFullYear()}{" "}
-          Sai Interiors.
-          All rights reserved.
+          Vinu's Designers. All rights reserved.
         </p>
 
         <h2>
@@ -1117,13 +1031,11 @@ function SaiFooter() {
 }
 
 // =========================================
-// MAIN APP
+// MAIN APPLICATION
 // =========================================
 
 export default function App() {
-  const [menu, setMenu] =
-    useState(false);
-
+  const [menu, setMenu] = useState(false);
   const [selected, setSelected] =
     useState(null);
 
@@ -1131,6 +1043,8 @@ export default function App() {
 
   const [progress, setProgress] =
     useState(0);
+
+  // SCROLL PROGRESS
 
   useEffect(() => {
     const scroll = () => {
@@ -1148,9 +1062,7 @@ export default function App() {
     window.addEventListener(
       "scroll",
       scroll,
-      {
-        passive: true,
-      }
+      { passive: true }
     );
 
     scroll();
@@ -1161,6 +1073,8 @@ export default function App() {
         scroll
       );
   }, []);
+
+  // MENU AND LIGHTBOX
 
   useEffect(() => {
     document.body.style.overflow =
@@ -1219,19 +1133,15 @@ export default function App() {
           />
 
           <span>
-            SAI
-            <small>
-              INTERIORS
-            </small>
+            VINU'S
+            <small>DESIGNERS</small>
           </span>
         </a>
 
         <button
           type="button"
           className="hamburger"
-          onClick={() =>
-            setMenu(true)
-          }
+          onClick={() => setMenu(true)}
           aria-label="Open navigation"
         >
           <span />
@@ -1251,9 +1161,7 @@ export default function App() {
         <button
           type="button"
           className="menu-close"
-          onClick={() =>
-            setMenu(false)
-          }
+          onClick={() => setMenu(false)}
           aria-label="Close menu"
         >
           ×
@@ -1270,9 +1178,7 @@ export default function App() {
             key={name}
             href={link}
             tabIndex={menu ? 0 : -1}
-            onClick={() =>
-              setMenu(false)
-            }
+            onClick={() => setMenu(false)}
           >
             {name}
             <Arrow size={24} />
@@ -1280,7 +1186,7 @@ export default function App() {
         ))}
 
         <span>
-          THE ART OF LIVING WELL — CHENNAI
+          THE ART OF LIVING WELL — DEMO
         </span>
       </div>
 
@@ -1298,15 +1204,13 @@ export default function App() {
         <div className="hero-copy-v4">
           <Reveal>
             <span className="micro-label">
-              SAI INTERIORS / CHENNAI
+              VINU'S DESIGNERS / DEMO
             </span>
 
             <h1>
               YOUR SPACE.
               <br />
-              <span>
-                OUR ART.
-              </span>
+              <span>OUR ART.</span>
             </h1>
 
             <p>
@@ -1357,7 +1261,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* OUR WORK - 3D GALLERY */}
+      {/* 3D PORTFOLIO */}
 
       <section
         className="work-section"
@@ -1425,47 +1329,45 @@ export default function App() {
           className="arch-service-list"
           ref={servicesRef}
         >
-          {services.map(
-            (service, i) => (
-              <a
-                key={service.title}
-                className="arch-service-card"
-                href="#contact"
-                style={{
-                  "--card-tint":
-                    service.tint,
-                }}
-              >
-                <div className="service-photo">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    loading="lazy"
-                  />
+          {services.map((service, i) => (
+            <a
+              key={service.title}
+              className="arch-service-card"
+              href="#contact"
+              style={{
+                "--card-tint":
+                  service.tint,
+              }}
+            >
+              <div className="service-photo">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  loading="lazy"
+                />
 
-                  <span className="service-shine" />
-                </div>
+                <span className="service-shine" />
+              </div>
 
-                <div className="service-meta">
-                  <span>
-                    {service.tag}
-                  </span>
-
-                  <h3>
-                    {service.title}
-                  </h3>
-
-                  <Arrow size={20} />
-                </div>
-
-                <span className="service-big-no">
-                  {String(
-                    i + 1
-                  ).padStart(2, "0")}
+              <div className="service-meta">
+                <span>
+                  {service.tag}
                 </span>
-              </a>
-            )
-          )}
+
+                <h3>
+                  {service.title}
+                </h3>
+
+                <Arrow size={20} />
+              </div>
+
+              <span className="service-big-no">
+                {String(
+                  i + 1
+                ).padStart(2, "0")}
+              </span>
+            </a>
+          ))}
         </div>
 
         <div className="service-foot">
@@ -1535,13 +1437,8 @@ export default function App() {
                 decimals={stat.decimals}
               />
 
-              <h3>
-                {stat.label}
-              </h3>
-
-              <p>
-                {stat.description}
-              </p>
+              <h3>{stat.label}</h3>
+              <p>{stat.description}</p>
             </div>
           ))}
         </div>
@@ -1609,15 +1506,13 @@ export default function App() {
               with a conversation.
             </p>
 
-            <a
-              href={`tel:${PHONE}`}
-            >
-              CALL NOW
+            <a href="#contact">
+              CONTACT: XXXXXX
               <Arrow size={20} />
             </a>
 
             <span className="enquiry-location">
-              ⌖ {LOCATION.toUpperCase()}
+              ⌖ {LOCATION}
             </span>
           </Reveal>
         </div>
@@ -1625,11 +1520,11 @@ export default function App() {
         <ContactForm />
       </section>
 
-      {/* PREMIUM ACCORDION FOOTER */}
+      {/* FOOTER */}
 
       <SaiFooter />
 
-      {/* PHOTO LIGHTBOX */}
+      {/* IMAGE LIGHTBOX */}
 
       {selected && (
         <div
